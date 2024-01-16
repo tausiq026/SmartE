@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "854997785591",
+    "project_id": "smartiot-53346",
+    "storage_bucket": "smartiot-53346.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854997785591:android:3d94e7ccc3bbb01f0eacf2",
+        "android_client_info": {
+          "package_name": "com.example.smart_e"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTf5QVpPJyNuOhTQ5-KPFJLNLTMk3dzKw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
