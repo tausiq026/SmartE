@@ -1,29 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:smart_e/firebase_options.dart';
 import 'package:smart_e/pages/auth_page.dart';
-import 'package:smart_e/pages/login_page.dart';
-import 'package:smart_e/pages/signup_page.dart';
-import 'firebase_options.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+
+  // Initialize the local notifications plugin
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
+
+  // Provide default icon settings
+  const AndroidInitializationSettings androidInitializationSettings =
+      AndroidInitializationSettings('@mipmap/ic_launcher');
+  final InitializationSettings initializationSettings =
+      InitializationSettings(android: androidInitializationSettings);
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+
+  runApp(
+      MyApp(flutterLocalNotificationsPlugin: flutterLocalNotificationsPlugin));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
-  // This widget is the root of your application.
+  const MyApp({super.key, required this.flutterLocalNotificationsPlugin});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(),
-      home: const AuthPage(),
-      // const AuthPage(),
+      home: AuthPage(
+          flutterLocalNotificationsPlugin: flutterLocalNotificationsPlugin),
     );
   }
 }

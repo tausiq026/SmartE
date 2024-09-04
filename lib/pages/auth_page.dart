@@ -7,15 +7,15 @@ import 'package:smart_e/pages/login_page.dart';
 import 'home.dart';
 
 class AuthPage extends StatelessWidget {
-  const AuthPage({super.key});
+  const AuthPage({super.key, required flutterLocalNotificationsPlugin});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (BuildContext context, AsyncSnapshot<User?> snapshot){
-          if (snapshot.connectionState == ConnectionState.waiting){
+        builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
           } else {
             if (snapshot.hasData) {
@@ -26,8 +26,7 @@ class AuthPage extends StatelessWidget {
             }
           }
         },
-
       ),
     );
   }
-  }
+}
