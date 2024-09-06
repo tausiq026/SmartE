@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # smart_e
 
 A new Flutter project.
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# SmartE
+Final Year Project
+>>>>>>> 384565a86cba50dec819eca7980af74c4367746e
